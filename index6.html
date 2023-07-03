@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        .container{
+            border: 2px solid orange;
+            width: 30%;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h2>Book a Call</h2>
+        <hr>
+        <form action="#" id="firstform">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name:</label>
+                <input type="name" class="form-control" id="fname" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Email address:</label>
+                <input type="email" class="form-control" id="fmail" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Phone:</label>
+                <input type="text" class="form-control" id="fnumber" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Time for Call:</label>
+                <div class="row mb-3">
+                    <div class="col">
+                        
+                      <input type="date" class="form-control" placeholder="First name" aria-label="First name" id="datetext">
+                    </div>
+                    <div class="col">
+                      <input type="time" class="form-control" placeholder="Last name" aria-label="Last name" id="timetext">
+                    </div>
+                  </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-warning" id="bton" type="submit">Get a call</button>
+                </div>
+                
+              </div>
+        </form>
+    </div>
+    <script>
+        let ele = document.getElementById("firstform");
+        let key = document.getElementById("fname").getAttribute("type");
+        
+        ele.addEventListener("submit",(e)=>{
+              e.preventDefault();
+              let name = document.getElementById("fname").value;
+              let pswd = document.getElementById("fmail").value;
+              let num = document.getElementById("fnumber").value;
+              localStorage.setItem("name",name);
+              localStorage.setItem("password",pswd);
+              localStorage.setItem("phone_num",num);
+        });
+    </script>
+  </body>
+</html>
