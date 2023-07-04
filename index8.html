@@ -46,7 +46,7 @@
         
     </div>
     <div class="list_names">
-        <ul>
+        <ul id="list">
 
         </ul>
     </div>
@@ -66,18 +66,28 @@
 
               document.querySelector("form").reset();
               localStorage.setItem(key,JSON.stringify(obj2));
-              let ele = document.getElementsByClassName('list_names');
+               let ele2 = document.getElementById("list");
               var newele = document.createElement("li");
+              newele.className = 'sublist'
               let str = "";
               for(i in obj2){
                   str += `${i} is ${obj2[i]} ,`;
                  
               }
              let newtext = document.createTextNode(str);
-
+             let btn = document.createElement("button");
+             btn.className="btn btn-warning";
+             btn.innerHTML="delete";
               newele.append(newtext);
-              ele[0].appendChild(newele)
-              
+              newele.append(btn);
+              ele2.append(newele);
+              btn.addEventListener("click",(e)=>{
+                  let ele = e.target.closest('.sublist');
+                  if(ele){
+                    ele.remove();
+                  }
+                 
+              })
         });
     </script>
   </body>
